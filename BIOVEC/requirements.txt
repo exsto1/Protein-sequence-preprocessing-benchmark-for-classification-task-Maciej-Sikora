@@ -1,0 +1,6 @@
+numpy
+scikit-learn
+biopython
+gensim
+torch
+skorch

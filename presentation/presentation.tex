@@ -1,0 +1,116 @@
+\documentclass[10pt]{beamer}
+\usetheme{Warsaw}
+
+\setbeamertemplate{footline}{}
+\setbeamersize{text margin left=3.5mm,text margin right=3.5mm} 
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+ 
+\urlstyle{same}
+
+\usepackage{datetime}
+\newdateformat{specialdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage{verbatim}
+
+\usepackage{caption}
+\captionsetup[figure]{name=Fig.}
+
+
+\title{Benchmark comparison of protein sequence preprocessing effect on learning task for Pfam family classification}
+\author{Maciej Sikora}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}
+\frametitle{Inspiration and problem overiew}
+\begin{itemize}
+\item \textbf{Data preprocessing for size reduction without loosing crucial information.}
+\end{itemize}
+
+\begin{itemize}
+\item Growing amount of biological data
+\item Uniprot
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inspiration and problem overiew}
+\begin{itemize}
+\item \textbf{Data preprocessing for size reduction without loosing crucial information.}
+\end{itemize}
+
+\begin{itemize}
+\item Most data is unreviewed
+\item Automated data annotating
+\item Need for better models
+\item More complicated models take longer to train
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Compared methods of preprocessing}
+\begin{itemize}
+\item Data source: Swissprot -- manually reviewed part of the Uniprot database
+\item Filtering by most frequent organisms and families
+\item CD-HIT -- removing very simmilar protein sequences
+\item Padding
+\item Splitting to stratified train and test pools
+\item Shuffling
+\end{itemize}
+
+\begin{itemize}
+\item Original
+\item Singletons -- dtype int8
+\item Triplets -- dtype int16
+\item Biovec
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Tested models}
+\begin{itemize}
+\item Decision trees
+\item Random trees
+\item MLP
+\item Nearest neighbours
+\item Machine Learnig (Simple Dense model)
+\end{itemize}
+
+\begin{itemize}
+\item Grid Search for optimal parameters
+\item Cross-validation
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item Treating protein data as string objects might have a negative impact on the training process.
+\item Simple conversion to numerical data improves both quality and runtime.
+\item Further numerical categorization for triplets while speeding up the learning process is loosing some of the information leading to decreased accuracy.
+\item Neighbourhood of aminoacids can be analysed using more sophisticated biovec model.
+\item Biovec yields both better results and over 500\% faster time compared to the original model.
+\item Biovec model data weights over 20 times less than the original one.
+\end{itemize}
+\end{frame}
+\end{document}

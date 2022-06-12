@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{times}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+ 
+\urlstyle{same}
+
+\usepackage{datetime}
+\newdateformat{specialdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{titling}
+
+\usepackage{framed}
+\usepackage[svgnames]{xcolor}
+\colorlet{shadecolor}{Gainsboro!50}
+
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage{verbatim}
+
+\usepackage{caption}
+\captionsetup[figure]{name=Fig.}
+
+\begin{document}
+\begin{center}
+\textbf{Benchmark comparison of protein sequence preprocessing effect on learning task for Pfam family classification}
+\end{center}
+
+
+\begin{center}
+Sikora Maciej$^{1}$
+\end{center}
+
+[1] Faculty of Mathematics, Informatics and Mechanics, University of Warsaw, Poland \newline
+
+\end{document}
+
+\begin{comment}
+BEGIN EXAMPLE PARAGRAPH:
+
+-----Kod w szarym boxie-----
+\begin{shaded}\small
+\begin{alltt}
+KOD
+\end{alltt}
+\end{shaded}
+
+-----Wstawianie obrazka-----
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{raw_url_fasta}
+\caption{Przykład umiejscowienia sekwencji przy użyciu surowego linku.}
+\end{center}
+\end{figure}
+
+-----Tabela-----
+\begin{center}
+\begin{tabular}{ | l | l | } 
+\hline
+Nazwa & Dodatek do linku\\ 
+\hline
+\hline
+AC & id\\
+\hline
+Entry name & entry\%20name\\ 
+\hline
+Czy Reviewed & reviewed\\ 
+\hline
+Referencje do Pfam & database(Pfam)\\ 
+\hline
+Sekwencja & sequence\\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{comment}
