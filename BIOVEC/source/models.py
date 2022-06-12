@@ -111,7 +111,7 @@ class ProtVec(Word2Vec):
 
         super().__init__(
             sentences=sentences,
-            # size=size,
+            size=size,
             sg=sg,
             window=window,
             min_count=min_count,

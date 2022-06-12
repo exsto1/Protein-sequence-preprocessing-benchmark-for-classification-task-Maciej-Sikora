@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 
 
-def input_analysis(input_file="../data/clustering/data_file_clustered.fasta"):
+def input_analysis(input_file="../data/clustering/data_file_clustered.fasta", outfile="../presentation/images/histogram.png"):
     with open(input_file) as fileh:
         file = fileh.readlines()
 
@@ -54,6 +54,7 @@ def input_analysis(input_file="../data/clustering/data_file_clustered.fasta"):
     plt.xlabel("Number of cases (families)")
     plt.title("Histogram of family sizes in the input data")
     plt.tight_layout()
+    plt.savefig(outfile)
     plt.show()
 
 
