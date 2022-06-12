@@ -31,7 +31,7 @@ conda env update --file environment.yaml
 pip install --upgrade numpy scipy pandas
 ```
 
-### Folder organisation
+## Folder organisation
 
 ```
 root
@@ -77,7 +77,7 @@ root
  
 ```
 
-### References
+## References
 - Data source - Uniprot
   - The UniProt Consortium, UniProt: the universal protein knowledgebase in 2021, Nucleic Acids Research, Volume 49, Issue D1, 8 January 2021, Pages D480–D489, https://doi.org/10.1093/nar/gkaa1100
 - Biovec
