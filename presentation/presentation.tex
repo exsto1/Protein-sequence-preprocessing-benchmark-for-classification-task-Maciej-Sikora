@@ -37,24 +37,24 @@
 
 
 \begin{frame}
-\frametitle{Inspiration and problem overiew}
+\frametitle{Inspiration and problem overview}
 \begin{itemize}
-\item \textbf{Data preprocessing for size reduction without loosing crucial information.}
+\item \textbf{Data preprocessing for size reduction without losing crucial information.}
 \end{itemize}
 
 \begin{itemize}
-\item Growing amount of biological data.
+\item A growing amount of biological data.
 \item Full Swissprot database:  $>$250 MB
 \item Full Uniprot database: around 10 GB
 \item Combining data from other databases would increase those numbers even more.
-\item Analysis becomes much harder and time-consuming
+\item The analysis becomes much harder and time-consuming
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Inspiration and problem overiew}
+\frametitle{Inspiration and problem overview}
 \begin{itemize}
-\item \textbf{Data preprocessing for size reduction without loosing crucial information.}
+\item \textbf{Data preprocessing for size reduction without losing crucial information.}
 \end{itemize}
 
 \begin{itemize}
@@ -69,8 +69,8 @@
 \frametitle{Biovec}
 \begin{itemize}
 \item Biovec [1][2] -- a multidisciplinary model combining knowledge from biology, linguistics and statistics.
-\item Analysis of k-mers in bigger sequential context.
-\item Calculating vectors of probability of k-mers in the given context.
+\item Analysis of k-mers in a bigger sequential context.
+\item Calculating vectors of the probability of k-mers in the given context.
 \item Using preprocessed metadata for training.
 \end{itemize}
 \begin{figure}[H]
@@ -85,7 +85,7 @@
 \begin{itemize}
 \item Data source: Swissprot -- manually reviewed part of the Uniprot[3] database
 \item Filtering by most frequent organisms and families
-\item CD-HIT[4] -- removing very simmilar protein sequences
+\item CD-HIT[4] -- removing very similar protein sequences
 \item Padding
 \item Splitting to stratified train and test pools
 \item Shuffling
@@ -111,7 +111,7 @@
 \item Random trees
 \item MLP
 \item Nearest neighbours
-\item Machine Learnig (Simple Dense model)
+\item Machine Learning (Simple Dense model)
 \end{itemize}
 
 \begin{itemize}
@@ -147,10 +147,10 @@
 \begin{itemize}
 \item Treating protein data as string objects might have a negative impact on the training process.
 \item Simple conversion to numerical data improves both accuracy  and runtime.
-\item Further numerical categorization for triplets while speeding up the learning process is loosing some of the information leading to decreased accuracy.
-\item Neighbourhood of aminoacids can be analysed using more sophisticated biovec model.
+\item Further numerical categorization for triplets while speeding up the learning process is losing some of the information leading to decreased accuracy.
+\item The neighbourhood of amino acids can be analysed using a more sophisticated biovec model.
 \item Biovec yields both better results and up to 100 times faster training process (MLP) compared to the original model.
-\item Biovec model data weights over 20 times less than the original one.
+\item Biovec model data weighs over 20 times less than the original one.
 \end{itemize}
 \end{frame}
 
