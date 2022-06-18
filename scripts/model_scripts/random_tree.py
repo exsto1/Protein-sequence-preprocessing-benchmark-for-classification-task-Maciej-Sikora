@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 
-def random_tree_func(datafile="../../data/clean_dataset_triplets.pkl"):
+def random_tree_func(datafile="../../data/clean_dataset_sum_triplets.pkl"):
     with open(datafile, 'rb') as f:
         data = pickle.load(f)
 

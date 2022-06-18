@@ -149,4 +149,5 @@ dependencies:
     - matplotlib==3.5.1
     - tensorflow
     - keras
+    - leven
 prefix: ./envs/benchmark_project_env

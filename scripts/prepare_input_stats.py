@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 
 
-def input_analysis(input_file="../data/clustering/data_file_clustered.fasta", outfile="../presentation/images/histogram.png"):
+def input_analysis(input_file="./data/clustering/data_file_clustered.fasta", outfile="./presentation/images/histogram.png"):
     with open(input_file) as fileh:
         file = fileh.readlines()
 
@@ -59,4 +59,4 @@ def input_analysis(input_file="../data/clustering/data_file_clustered.fasta", ou
 
 
 if __name__ == '__main__':
-    input_analysis()
+    input_analysis(input_file="../data/clustering/data_file_clustered.fasta", outfile="../presentation/images/histogram.png")

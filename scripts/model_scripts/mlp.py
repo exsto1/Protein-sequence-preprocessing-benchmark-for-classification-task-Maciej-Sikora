@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 
-def mlp_func(datafile="../../data/clean_dataset_original.pkl"):
+def mlp_func(datafile="../../data/clean_dataset_sum_k_mers.pkl"):
     with open(datafile, 'rb') as f:
         data = pickle.load(f)
 
@@ -13,7 +13,7 @@ def mlp_func(datafile="../../data/clean_dataset_original.pkl"):
     params = {"hidden_layer_sizes": [32, 64, 128],
               "activation": ['relu'],
               "solver": ['adam']}
-    model_combined = GridSearchCV(MLPClassifier(max_iter=100), param_grid=params, scoring="accuracy", cv=2, n_jobs=2, verbose=3)
+    model_combined = GridSearchCV(MLPClassifier(max_iter=150), param_grid=params, scoring="accuracy", cv=2, n_jobs=2, verbose=3)
     try:
         if data[0].dtype.name != "str32":
             model_combined.fit(data[0], data[1])

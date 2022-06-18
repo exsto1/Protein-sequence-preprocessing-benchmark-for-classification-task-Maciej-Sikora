@@ -59,4 +59,4 @@ def deep_learning_func(datafile="../../data/clean_dataset_triplets.pkl"):
 
 
 if __name__ == '__main__':
-    deep_learning_func(datafile="../../data/clean_dataset_original.pkl")
+    deep_learning_func()

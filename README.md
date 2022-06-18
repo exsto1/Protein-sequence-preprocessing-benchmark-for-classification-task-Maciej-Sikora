@@ -31,6 +31,18 @@ conda env update --file environment.yaml
 pip install --upgrade numpy scipy pandas
 ```
 
+## Additional packages
+If user so chooses, it is also possible to use CLANS package.
+However, it might require additional resources:
+- Java JDK: https://openjdk.org
+- blastp (system global installation)
+
+However, the process is extremely tidious as it requires archived version of packages.
+
+Additionally, calculations might take hours to complete even for small files.
+I recommend using already provided file for default parameters or comment CLANS-related code fragments.
+
+
 ## Folder organisation
 
 ```
