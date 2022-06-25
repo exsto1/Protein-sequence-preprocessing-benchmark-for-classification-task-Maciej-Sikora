@@ -13,7 +13,8 @@ def results_plot_benchmark(names, tests, all_times, all_accs, outfile="./present
     ax1.set_xticks(range(len(names)), names)
     ax1.set_xlabel("Model", fontsize=12)
     ax1.set_ylabel("Time [sec]", fontsize=12)
-    ax1.legend()
+
+    ax1.legend(ncol=2, fontsize="small")
 
     for i in range(len(tests)):
         ax2.bar([i0 + 0.15 * (i - 2) for i0 in range(len(names))], all_accs[i], width=0.15, facecolor="w",
@@ -23,6 +24,7 @@ def results_plot_benchmark(names, tests, all_times, all_accs, outfile="./present
     ax2.set_xticks(range(len(names)), names)
     ax2.set_xlabel("Model", fontsize=12)
     ax2.set_xlabel("Accuracy", fontsize=12)
+
 
     plt.suptitle("Comparison of time and accuracy between test", fontsize=18)
     plt.tight_layout()
@@ -36,7 +38,7 @@ def plot_sizes(files, names, outfile):
         st_file = os.stat(file)
         y_data.append(st_file.st_size / (1024 * 1024))
 
-    fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(7, 4))
 
     ax.bar(names, y_data, facecolor="w", edgecolor="k", hatch="/")
     ax.spines.right.set_visible(False)
@@ -51,19 +53,24 @@ def plot_sizes(files, names, outfile):
 
 
 if __name__ == '__main__':
-    # results_plot_benchmark(["Original", "Singletons", "Triplets", "Biovec"],
-    #                        ["Decision trees", "Random trees", "Nearest neighbours", "MLP", "Machine Learning"],
-    #                        [[16.67, 11.1, 6.24, 0.34], [26.0, 22.44, 24.26, 5.97], [8.03, 3.29, 1.63, 0.22],
-    #                         [199.47, 152.6, 52.42, 1.94], [67.14, 53.67, 50.93, 42.39]],
-    #                        [[0.3306, 0.5661, 0.55, 0.668], [0.4, 0.6968, 0.6726, 0.8618],
-    #                         [0.3935, 0.6532, 0.6161, 0.8302], [0.3806, 0.6565, 0.2677, 0.7917],
-    #                         [0.4516128897666931, 0.5048387050628662, 0.2758064568042755, 0.5998011827468872]],
-    #                        outfile="../presentation/images/benchmark.png")
+    names = ["Original", "Singletons", "Triplets", "Sum\nTriplets", "Sum\nK-mers", "Biovec"]
+    tests = ["Decision trees", "Random trees", "Nearest neighbours", "MLP", "Machine Learning"]
+    times = [[16.07, 10.66, 6.54, 22.6, 47.2, 0.39], [25.71, 23.79, 25.86, 26.81, 35.63, 5.81],
+     [7.27, 4.63, 2.47, 7.25, 7.71, 0.55], [270.7, 169.79, 51.17, 59.72, 174.14, 2.25],
+     [64.46, 53.11, 50.17, 60.85, 60.29, 39.75]]
+    accs = [[0.1886, 0.7048, 0.6524, 0.8267, 0.3105, 0.7089], [0.419, 0.8019, 0.7876, 0.9781, 0.3419, 0.8839],
+     [0.3314, 0.7457, 0.7305, 0.719, 0.301, 0.8712], [0.1914, 0.7781, 0.4362, 0.9952, 0.3495, 0.8376],
+     [0.4257, 0.6419, 0.361, 0.9924, 0.3467, 0.7347]]
+    results_plot_benchmark(names, tests, times, accs,
+                           outfile="../presentation/images/benchmark.png")
 
-    # plot_sizes(["../data/clean_dataset_original.pkl", "../data/clean_dataset_singletons.pkl",
-    #             "../data/clean_dataset_triplets.pkl", "../data/clean_dataset_biovec.pkl"],
-    #            ["Original", "Singletons", "Triplets", "Biovec"],
-    #            "../presentation/images/sizes.png")
-    #
+    files = ["../data/clean_dataset_original.pkl",
+             "../data/clean_dataset_singletons.pkl",
+             "../data/clean_dataset_triplets.pkl",
+             "../data/clean_dataset_sum_triplets.pkl",
+             "../data/clean_dataset_sum_k_mers.pkl",
+             "../data/clean_dataset_biovec.pkl"]
+
+    plot_sizes(files, names, "../presentation/images/sizes.png")
 
     pass

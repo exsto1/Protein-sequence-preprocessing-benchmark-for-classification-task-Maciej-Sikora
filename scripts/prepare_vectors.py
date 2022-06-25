@@ -63,13 +63,13 @@ def split_data_to_classes(infile="../data/clean_dataset.pkl", output_folder="../
                 outfile.write(f"{families[i][i1]}\n")
 
 
-def prepare_biovec_model(infile="../data/vectors/combined.fasta", outfile="../data/vectors/ProtVec_model.model", corpus="../data/vectors/combined_corpus.cor"):
+def prepare_biovec_model(infile="../data/vectors/combined.fasta", outfile="../data/vectors/ProtVec_model.model", corpus="../data/vectors/combined_corpus.cor", vec_size=100, area=25):
     if os.path.exists(corpus):
         os.remove(corpus)
     if os.path.exists(outfile):
         os.remove(outfile)
 
-    pv_model = ProtVec(infile)
+    pv_model = ProtVec(infile, size=vec_size, window=area)
     pv_model.save(outfile)
 
 
