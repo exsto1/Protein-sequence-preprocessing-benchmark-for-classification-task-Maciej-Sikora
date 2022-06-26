@@ -5,14 +5,14 @@ import numpy as np
 import pandas as pd
 
 
-def nearest_neighbours_func(datafile="../../data/clean_dataset_sum_triplets.pkl"):
+def nearest_neighbours_func(datafile="../../data/clean_dataset_biovec.pkl"):
     with open(datafile, 'rb') as f:
         data = pickle.load(f)
 
 
     params = {"weights": ["uniform", "distance"],
               "algorithm": ['auto']}
-    model_combined = GridSearchCV(KNeighborsClassifier(), param_grid=params, scoring="accuracy", cv=2, n_jobs=2)
+    model_combined = GridSearchCV(KNeighborsClassifier(), param_grid=params, scoring="accuracy", cv=2, n_jobs=2, verbose=1, refit=True)
     try:
         if data[0].dtype.name != "str32":
             model_combined.fit(data[0], data[1])
@@ -38,12 +38,15 @@ def nearest_neighbours_func(datafile="../../data/clean_dataset_sum_triplets.pkl"
         if prediction[i] == real[i]:
             correct += 1
     accuracy = correct / len(prediction)
+
+    runtime = round(model_combined.refit_time_, 4)
+
     print("Best model:")
     for name in params:
         print(f"- {name}: {str(model_combined.best_params_[name])}")
     print(f"----- Model accuracy: {round(accuracy, 3)}")
 
-    return round(accuracy, 4)
+    return round(accuracy, 4), runtime
 
 
 if __name__ == '__main__':

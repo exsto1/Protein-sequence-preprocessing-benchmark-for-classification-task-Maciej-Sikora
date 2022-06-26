@@ -23,7 +23,7 @@ def results_plot_benchmark(names, tests, all_times, all_accs, outfile="./present
     ax2.spines.top.set_visible(False)
     ax2.set_xticks(range(len(names)), names)
     ax2.set_xlabel("Model", fontsize=12)
-    ax2.set_xlabel("Accuracy", fontsize=12)
+    ax2.set_ylabel("Accuracy", fontsize=12)
 
 
     plt.suptitle("Comparison of time and accuracy between test", fontsize=18)
